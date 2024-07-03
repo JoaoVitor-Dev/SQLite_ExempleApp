@@ -12,7 +12,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import com.example.exemplo_sqlite02.R;
 
-public class UsuariosActivity extends AppCompatActivity
+public class UsersActivity extends AppCompatActivity
 {
     Button btnGoBack;
     @Override
@@ -34,7 +34,7 @@ public class UsuariosActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                startActivity(new Intent(UsuariosActivity.this, MainActivity.class));
+                startActivity(new Intent(UsersActivity.this, MainActivity.class));
             }
         });
     }

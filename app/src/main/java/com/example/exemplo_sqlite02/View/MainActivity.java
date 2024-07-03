@@ -1,6 +1,7 @@
 package com.example.exemplo_sqlite02.View;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -42,30 +43,20 @@ public class MainActivity extends AppCompatActivity {
         });
 
         setup();
+    }
 
-        btnInsert.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                insert();
-            }
-        });
-
-        btnCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                edtName.setText(" ");
-                edtAge.setText(" ");
-            }
-        });
-
-        btnList.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                List<User> dados = userDAO.getAll();
-
-                textViewResult.setText(dados.toString());
-            }
-        });
+    public void clique(View view)
+    {
+        if(view.getId() == R.id.btnInsert)
+        {
+            insert();
+        }else if(view.getId() == R.id.btnCancel)
+        {
+            clearFields();
+        } else if (view.getId() == R.id.btnList)
+        {
+            usersActivity();
+        }
     }
 
     @Override
@@ -88,6 +79,8 @@ public class MainActivity extends AppCompatActivity {
 
         Toast.makeText(MainActivity.this, "Usuário ID " +
                 ":"+userId+" cadastrado!" , Toast.LENGTH_SHORT).show();
+
+        clearFields();
     }
 
     public void setup()
@@ -109,6 +102,17 @@ public class MainActivity extends AppCompatActivity {
         edtAge = findViewById(R.id.edtIdade);
 
         textViewResult = findViewById(R.id.textViewResult);
+    }
+
+    public void clearFields()
+    {
+        edtName.setText(" ");
+        edtAge.setText(" ");
+    }
+
+    public void usersActivity()
+    {
+        startActivity(new Intent(MainActivity.this, UsersActivity.class));
     }
 }
 

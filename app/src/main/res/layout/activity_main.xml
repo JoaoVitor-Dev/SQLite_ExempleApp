@@ -51,6 +51,7 @@
                 android:layout_weight="1"
                 android:layout_margin="5dp"
                 android:backgroundTint="@color/green"
+                android:onClick="clique"
                 android:text="salvar"
                 style="@style/Widget.MaterialComponents.Button"/>
 
@@ -61,6 +62,7 @@
                 android:layout_weight="1"
                 android:layout_margin="5dp"
                 android:backgroundTint="@color/red"
+                android:onClick="clique"
                 android:text="cancelar"
                 style="@style/Widget.MaterialComponents.Button"/>
     </LinearLayout>
@@ -70,6 +72,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/blue"
+            android:onClick="clique"
             android:text="listar"
             android:layout_margin="5dp"
             style="@style/Widget.MaterialComponents.Button"/>
