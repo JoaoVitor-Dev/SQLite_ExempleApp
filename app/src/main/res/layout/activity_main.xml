@@ -51,7 +51,7 @@
                 android:layout_weight="1"
                 android:layout_margin="5dp"
                 android:backgroundTint="@color/green"
-                android:onClick="clique"
+                android:onClick="click"
                 android:text="salvar"
                 style="@style/Widget.MaterialComponents.Button"/>
 
@@ -62,7 +62,7 @@
                 android:layout_weight="1"
                 android:layout_margin="5dp"
                 android:backgroundTint="@color/gray"
-                android:onClick="clique"
+                android:onClick="click"
                 android:text="cancelar"
                 style="@style/Widget.MaterialComponents.Button"/>
     </LinearLayout>
@@ -72,7 +72,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/blue"
-            android:onClick="clique"
+            android:onClick="click"
             android:text="listar"
             android:layout_margin="5dp"
             style="@style/Widget.MaterialComponents.Button"/>
@@ -85,12 +85,17 @@
         <LinearLayout
                 android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="500dp"
                 android:orientation="vertical"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toTopOf="@+id/btnSair">
 
-            <!-- Outros componentes dentro do LinearLayout -->
+            <ListView
+                android:id="@+id/listUsers"
+                android:layout_width="match_parent"
+                android:layout_height="560dp"
+                android:paddingTop="5dp" />
+
 
         </LinearLayout>
 
@@ -99,7 +104,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/red"
-                android:onClick="clique"
+                android:onClick="click"
                 android:text="Sair"
                 android:layout_margin="5dp"
                 style="@style/Widget.MaterialComponents.Button"

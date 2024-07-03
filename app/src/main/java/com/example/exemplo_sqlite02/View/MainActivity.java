@@ -2,10 +2,15 @@ package com.example.exemplo_sqlite02.View;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import android.widget.Toast;
@@ -15,11 +20,14 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.exemplo_sqlite02.Adapter.UsersAdapter;
 import com.example.exemplo_sqlite02.DAO.DBManager;
 import com.example.exemplo_sqlite02.Entity.User;
 import com.example.exemplo_sqlite02.R;
 import com.example.exemplo_sqlite02.DAO.UserDAO;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -28,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
     private Button btnInsert, btnList, btnCancel;
     private EditText edtName;
     private EditText edtAge;
+    private ListView ListView;
+    private UsersAdapter adapter;
+    private List<User> users;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -44,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         setup();
     }
 
-    public void clique(View view)
+    public void click(View view)
     {
         if(view.getId() == R.id.btnInsert)
         {
@@ -54,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
             clearFields();
         } else if (view.getId() == R.id.btnList)
         {
-            usersActivity();
+            list();
         } else if (view.getId() == R.id.btnSair)
         {
             finishAffinity();
@@ -103,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
 
         edtAge = findViewById(R.id.edtIdade);
 
+        ListView = findViewById(R.id.listUsers);
     }
 
     public void clearFields()
@@ -114,6 +126,16 @@ public class MainActivity extends AppCompatActivity {
     public void usersActivity()
     {
         startActivity(new Intent(MainActivity.this, UsersActivity.class));
+    }
+
+    public void list()
+    {
+        users = userDAO.getAll();
+
+
+        adapter = new UsersAdapter(this.getLayoutInflater(), (ArrayList<User>)users);
+
+        ListView.setAdapter(adapter);
     }
 }
 

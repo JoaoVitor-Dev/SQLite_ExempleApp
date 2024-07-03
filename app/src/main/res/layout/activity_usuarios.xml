@@ -16,9 +16,7 @@
             android:textSize="25dp"
             />
 
-    <ListView
-            android:layout_width="match_parent"
-            android:layout_height="500dp"/>
+
 
     <com.google.android.material.button.MaterialButton
             android:id="@+id/btnVoltar"
