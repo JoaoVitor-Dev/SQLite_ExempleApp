@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
     private UserDAO userDAO;
     private DBManager databaseManager;
     private Button btnInsert, btnList, btnCancel;
-    private TextView textViewResult;
     private EditText edtName;
     private EditText edtAge;
 
@@ -56,6 +55,9 @@ public class MainActivity extends AppCompatActivity {
         } else if (view.getId() == R.id.btnList)
         {
             usersActivity();
+        } else if (view.getId() == R.id.btnSair)
+        {
+            finishAffinity();
         }
     }
 
@@ -101,7 +103,6 @@ public class MainActivity extends AppCompatActivity {
 
         edtAge = findViewById(R.id.edtIdade);
 
-        textViewResult = findViewById(R.id.textViewResult);
     }
 
     public void clearFields()
