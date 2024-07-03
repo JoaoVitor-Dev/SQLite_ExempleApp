@@ -86,7 +86,8 @@ public class MainActivity extends AppCompatActivity {
 
         long userId = userDAO.insertUser(user);
 
-        Toast.makeText(MainActivity.this, "Usuário ID :"+userId+" cadastrado!" , Toast.LENGTH_SHORT).show();
+        Toast.makeText(MainActivity.this, "Usuário ID " +
+                ":"+userId+" cadastrado!" , Toast.LENGTH_SHORT).show();
     }
 
     public void setup()
