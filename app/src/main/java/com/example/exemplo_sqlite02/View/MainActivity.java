@@ -78,11 +78,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void insert()
     {
-        User user = new User(edtName.toString(), Integer.parseInt(edtAge.toString()));
+        String name = edtName.getText().toString();
+
+        String age = edtAge.getText().toString();
+
+        User user = new User(name, Integer.parseInt(age));
 
         long userId = userDAO.insertUser(user);
 
-        Toast.makeText(MainActivity.this, "Usuário Id:"+userId+" cadastrado!" , Toast.LENGTH_SHORT).show();
+        Toast.makeText(MainActivity.this, "Usuário ID :"+userId+" cadastrado!" , Toast.LENGTH_SHORT).show();
     }
 
     public void setup()
@@ -98,6 +102,10 @@ public class MainActivity extends AppCompatActivity {
         btnList = findViewById(R.id.btnList);
 
         btnCancel = findViewById(R.id.btnCancel);
+
+        edtName = findViewById(R.id.edtNome);
+
+        edtAge = findViewById(R.id.edtIdade);
 
         textViewResult = findViewById(R.id.textViewResult);
     }
